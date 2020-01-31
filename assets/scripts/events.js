@@ -1,6 +1,6 @@
 'use strict'
 
-const getFormFields = require(`../../../lib/get-form-fields`)
+const getFormFields = require(`../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
@@ -49,6 +49,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('form').trigger('reset')
 }
 
 module.exports = {

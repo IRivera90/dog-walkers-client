@@ -1,4 +1,4 @@
-const store = require('../store')
+const store = require('./store')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
@@ -20,6 +20,10 @@ const signInSuccess = function (data) {
   $('#message').addClass('success')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-passwords').show()
+  $('#sign-out').show()
 }
 
 const signInFailure = function (error) {
@@ -36,6 +40,9 @@ const signOutSuccess = function () {
   $('form').trigger('reset')
   console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#sign-out').hide()
 }
 
 const signOutFailure = function (error) {

@@ -8,7 +8,7 @@ const authEvents = require('./events')
 
 $(() => {
   // your JS code goes here
-  $('#change-passwords').hide()
+  $('#change-password').hide()
   $('#sign-out').hide()
   authEvents.addHandlers()
 })
