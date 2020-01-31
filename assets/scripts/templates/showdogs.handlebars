@@ -1,0 +1,17 @@
+{{#each dogs as |dog|}}
+  <section data-id="{{dog.id}}">
+    <h6>Name:</h6>
+    <h3>
+      {{dog.name}}
+    </h3>
+    <h6>Breed:</h6>
+    <p>
+      {{#if dog.breed}}
+        {{dog.breed}}
+      {{else}}
+        No breed provided.
+      {{/if}}
+    </p>
+  </section>
+
+{{/each}}

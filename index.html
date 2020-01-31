@@ -54,17 +54,16 @@
   <form id="dog-create" class="border">
     <fieldset>
       <legend>Register a dog</legend>
-      <input type="text" name="dog[text]" placeholder="Enter Dog Text">
+      <input type="text" name="dog[name]" placeholder="Dog's name">
+      <input type="text" name="dog[breed]" placeholder="Dog's breed">
       <input type="submit" value="Register a dog">
     </fieldset>
   </form>
 
-  <form id="dog-index" class="border">
-    <fieldset>
-      <legend>Show all the dogs!</legend>
-      <input type="submit" value="Get All Dogs">
-    </fieldset>
-  </form>
+  <div id="dog-index" class="border">
+      <h3>Show all the dogs!</h3>
+      <button type="button"> Get All Dogs </button>
+  </div>
 
   <form id="dog-show" class="border">
     <fieldset>
@@ -85,10 +84,13 @@
   <form id="dog-update" class="border">
     <fieldset>
       <legend>Update One Dog</legend>
-      <input type="text" name="dog[id]" placeholder="Enter Dog ID">
-      <input type="text" name="dog[text]" placeholder="Enter Dog Text">
+      <input type="text" name="dog[name]" placeholder="Enter Dog Name">
+      <input type="text" name="dog[breed]" placeholder="Enter Dog Breed">
       <input type="submit" value="Update Dog">
     </fieldset>
   </form>
+
+  <div id='doglist'>
+  </div>
     </body>
 </html>

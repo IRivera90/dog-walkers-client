@@ -44,11 +44,33 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onAddDog = function (event) {
+  console.log(event)
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  api.addDog(data)
+    .then(ui.onAddDogSuccess)
+    .catch(ui.onAddDogFailure)
+}
+
+const onGetAllDogs = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.showDogs(data)
+    .then(ui.onShowDogsSuccess)
+    .catch()
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#dog-create').on('submit', onAddDog)
+  $('#dog-index').on('click', onGetAllDogs)
   $('form').trigger('reset')
 }
 

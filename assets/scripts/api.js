@@ -35,9 +35,42 @@ const changePassword = function (data) {
     data: data
   })
 }
+const addDog = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/dogs',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+const showDogs = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/dogs',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+// const removeDog = function (dogId) {
+//   return $.ajax({
+//     url: config.apiUrl + '/dogs/' + dogId,
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//   })
+// }
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  addDog,
+  showDogs
+  // removeDog
 }
