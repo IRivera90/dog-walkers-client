@@ -3,15 +3,18 @@ const api = require('./api')
 const showDogs = require('./templates/showdogs.handlebars')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
+  $('#message').show().text('Signed up successfully')
+  $('#sign-up').trigger('reset')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const signUpFailure = function () {
-  $('#message').text('Error on sign up')
+  $('#message').show().text('Error on sign up')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
+  $('#message').show().text('Signed in successfully')
   store.user = data.user
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -19,60 +22,77 @@ const signInSuccess = function (data) {
   $('#sign-out').show()
   $('#dog-index').show()
   $('#dog-create').show()
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const signInFailure = function () {
-  $('#message').text('Error on sign in')
+  $('#message').show().text('Error on sign in')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Signed out successfully')
+  $('#message').show().text('Signed out successfully')
   $('form').trigger('reset')
   store.user = null
   $('#sign-up').show()
   $('#sign-in').show()
   $('#sign-out').hide()
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const signOutFailure = function () {
-  $('#message').text('Error on sign out')
+  $('#message').show().text('Error on sign out')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
+  $('#message').show().text('Changed password successfully')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const changePasswordFailure = function () {
-  $('#message').text('Error on change password')
+  $('#message').show().text('Error on change password')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const onAddDogSuccess = function () {
-  $('#message').text('Registered a new dog. Yay!')
+  $('#message').show().text('Registered a new dog. Yay!')
+  $('#dog-create').trigger('reset')
+  $('#doglist').hide()
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const onAddDogFailure = function () {
-  $('#message').text('Could not register new dog')
+  $('#message').show().text('Could not register new dog')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const onShowDogsSuccess = function (data) {
   const showDogsHtml = showDogs({ dogs: data.dogs })
+  $('#doglist').show()
   $('#doglist').html(showDogsHtml)
+  $('#doglist').trigger('reset')
 }
 
 const onRemoveDogSuccess = function (data) {
-  $('#message').text(':(')
+  $('#message').show().text(':(')
   $('.oneDog').empty()
   api.showDogs(data)
     .then(onShowDogsSuccess)
     .catch()
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const onUpdateDogSuccess = function (data) {
-  $('#message').text('Dog updated')
+  $('#message').show().text('Dog updated')
+  $('.updateDog').trigger('reset')
+  $('#doglist').hide()
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const onUpdateDogFailure = function (data) {
-  $('#message').text('Failed to update')
+  $('#message').show().text('Failed to update')
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 module.exports = {

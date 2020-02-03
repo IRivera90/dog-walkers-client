@@ -84,7 +84,7 @@ const onUpdateDog = function (event) {
 }
 
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp)
+  $('#sign-up').on('submit', onSignUp).trigger('reset')
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
@@ -92,7 +92,7 @@ const addHandlers = () => {
   $('#dog-index').on('click', onGetAllDogs).trigger('reset')
   $('#doglist').on('click', '.destroyDog', onDeleteDog)
   $('#doglist').on('submit', '.updateDog', onUpdateDog)
-  $('form').trigger('reset')
+  // $('#form').trigger('reset').on('submit')
 }
 
 module.exports = {
