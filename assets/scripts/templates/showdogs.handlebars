@@ -1,5 +1,5 @@
 {{#each dogs as |dog|}}
-  <section data-id="{{dog.id}}">
+  <section class='oneDog' data-id="{{dog.id}}">
     <h6>Name:</h6>
     <h3>
       {{dog.name}}
@@ -12,6 +12,18 @@
         No breed provided.
       {{/if}}
     </p>
+    <!-- <p>Is this dog no longer with us?</p> !-->
+    <button type=button class='destroyDog'>Remove Dog</button>
+    <form class='updateDog'>
+      <fieldset>
+        <legend>Update Dog</legend>
+        <input type="text" name="dog[name]" placeholder="Enter Dog Name">
+        <input type="text" name="dog[breed]" placeholder="Enter Dog Breed">
+        <!-- <input type="submit" value="Update Dog"> !-->
+      </fieldset>
+  <button type='submit' class='updateDog'>Update dog</button>
+  </form>
+    <!--  {{> partial}} !-->
   </section>
 
 {{/each}}

@@ -10,5 +10,9 @@ $(() => {
   // your JS code goes here
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#update-dog').hide()
+  $('#dog-create').hide()
+  $('#dog-index').hide()
+  $('#dog-update').hide()
   authEvents.addHandlers()
 })

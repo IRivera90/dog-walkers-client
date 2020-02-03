@@ -1,4 +1,5 @@
 const store = require('./store')
+const api = require('./api')
 const showDogs = require('./templates/showdogs.handlebars')
 
 const signUpSuccess = function (data) {
@@ -16,6 +17,8 @@ const signInSuccess = function (data) {
   $('#sign-in').hide()
   $('#change-passwords').show()
   $('#sign-out').show()
+  $('#dog-index').show()
+  $('#dog-create').show()
 }
 
 const signInFailure = function () {
@@ -53,7 +56,23 @@ const onAddDogFailure = function () {
 
 const onShowDogsSuccess = function (data) {
   const showDogsHtml = showDogs({ dogs: data.dogs })
-  $('#doglist').append(showDogsHtml)
+  $('#doglist').html(showDogsHtml)
+}
+
+const onRemoveDogSuccess = function (data) {
+  $('#message').text(':(')
+  $('.oneDog').empty()
+  api.showDogs(data)
+    .then(onShowDogsSuccess)
+    .catch()
+}
+
+const onUpdateDogSuccess = function (data) {
+  $('#message').text('Dog updated')
+}
+
+const onUpdateDogFailure = function (data) {
+  $('#message').text('Failed to update')
 }
 
 module.exports = {
@@ -67,5 +86,8 @@ module.exports = {
   changePasswordFailure,
   onAddDogSuccess,
   onAddDogFailure,
-  onShowDogsSuccess
+  onShowDogsSuccess,
+  onRemoveDogSuccess,
+  onUpdateDogSuccess,
+  onUpdateDogFailure
 }

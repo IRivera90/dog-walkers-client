@@ -45,25 +45,35 @@ const addDog = function (data) {
     data: data
   })
 }
-const showDogs = function (data) {
+const showDogs = function () {
   return $.ajax({
     url: config.apiUrl + '/dogs',
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const removeDog = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/dogs/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const updateDog = function (id, data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/dogs/' + id,
+    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: data
   })
 }
-// const removeDog = function (dogId) {
-//   return $.ajax({
-//     url: config.apiUrl + '/dogs/' + dogId,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//   })
-// }
 
 module.exports = {
   signUp,
@@ -71,6 +81,7 @@ module.exports = {
   changePassword,
   signOut,
   addDog,
-  showDogs
-  // removeDog
+  showDogs,
+  removeDog,
+  updateDog
 }

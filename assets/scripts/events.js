@@ -64,13 +64,34 @@ const onGetAllDogs = function (event) {
     .catch()
 }
 
+const onDeleteDog = function (event) {
+  const id = $(event.target).closest('section').data('id')
+  console.log(id)
+  api.removeDog(id)
+    .then(ui.onRemoveDogSuccess)
+    .catch()
+}
+
+const onUpdateDog = function (event) {
+  const id = $(event.target).closest('section').data('id')
+  console.log(id)
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  api.updateDog(id, data)
+    .then(ui.onUpdateDogSuccess)
+    .catch(ui.onUpdateDogFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#dog-create').on('submit', onAddDog)
-  $('#dog-index').on('click', onGetAllDogs)
+  $('#dog-index').on('click', onGetAllDogs).trigger('reset')
+  $('#doglist').on('click', '.destroyDog', onDeleteDog)
+  $('#doglist').on('submit', '.updateDog', onUpdateDog)
   $('form').trigger('reset')
 }
 
