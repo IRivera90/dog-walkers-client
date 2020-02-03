@@ -37,6 +37,9 @@ const signOutSuccess = function () {
   $('#sign-up').show()
   $('#sign-in').show()
   $('#sign-out').hide()
+  $('#doglist').hide()
+  $('#dog-create').hide()
+  $('#dog-index').hide()
   setTimeout(() => $('#message').hide(), 3000)
 }
 
