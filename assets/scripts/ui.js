@@ -40,6 +40,7 @@ const signOutSuccess = function () {
   $('#doglist').hide()
   $('#dog-create').hide()
   $('#dog-index').hide()
+  $('#change-password').hide()
   setTimeout(() => $('#message').hide(), 3000)
 }
 
@@ -50,6 +51,7 @@ const signOutFailure = function () {
 
 const changePasswordSuccess = function () {
   $('#message').show().text('Changed password successfully')
+  $('#change-password').trigger('reset')
   setTimeout(() => $('#message').hide(), 3000)
 }
 
@@ -78,6 +80,7 @@ const onShowDogsSuccess = function (data) {
   if (data.dogs.length < 1) {
     $('#message').show().text('Please add dogs!')
   }
+  setTimeout(() => $('#message').hide(), 3000)
 }
 
 const onRemoveDogSuccess = function (data) {
