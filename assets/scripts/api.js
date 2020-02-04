@@ -64,7 +64,6 @@ const removeDog = function (id) {
   })
 }
 const updateDog = function (id, data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/dogs/' + id,
     method: 'PATCH',

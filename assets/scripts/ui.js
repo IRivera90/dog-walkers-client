@@ -18,7 +18,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('#sign-up').hide()
   $('#sign-in').hide()
-  $('#change-passwords').show()
+  $('#change-password').show()
   $('#sign-out').show()
   $('#dog-index').show()
   $('#dog-create').show()
@@ -75,6 +75,9 @@ const onShowDogsSuccess = function (data) {
   $('#doglist').show()
   $('#doglist').html(showDogsHtml)
   $('#doglist').trigger('reset')
+  if (data.dogs.length < 1) {
+    $('#message').show().text('Please add dogs!')
+  }
 }
 
 const onRemoveDogSuccess = function (data) {

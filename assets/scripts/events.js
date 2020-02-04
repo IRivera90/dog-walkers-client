@@ -7,7 +7,6 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('sign up ran!')
 
   const data = getFormFields(this)
   api.signUp(data)
@@ -17,7 +16,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('sign in ran!')
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -27,8 +25,6 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('sign out ran')
-
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -36,7 +32,6 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
 
   const data = getFormFields(this)
   api.changePassword(data)
@@ -45,7 +40,6 @@ const onChangePassword = function (event) {
 }
 
 const onAddDog = function (event) {
-  console.log(event)
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
@@ -66,7 +60,6 @@ const onGetAllDogs = function (event) {
 
 const onDeleteDog = function (event) {
   const id = $(event.target).closest('section').data('id')
-  console.log(id)
   api.removeDog(id)
     .then(ui.onRemoveDogSuccess)
     .catch()
@@ -74,7 +67,6 @@ const onDeleteDog = function (event) {
 
 const onUpdateDog = function (event) {
   const id = $(event.target).closest('section').data('id')
-  console.log(id)
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
@@ -92,7 +84,6 @@ const addHandlers = () => {
   $('#dog-index').on('click', onGetAllDogs).trigger('reset')
   $('#doglist').on('click', '.destroyDog', onDeleteDog)
   $('#doglist').on('submit', '.updateDog', onUpdateDog)
-  // $('#form').trigger('reset').on('submit')
 }
 
 module.exports = {
