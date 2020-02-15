@@ -14,5 +14,10 @@ $(() => {
   $('#dog-create').hide()
   $('#dog-index').hide()
   $('#dog-update').hide()
+  // smallpets
+  $('#update-smallpet').hide()
+  $('#smallpet-create').hide()
+  $('#smallpet-index').hide()
+  $('#smallpet-update').hide()
   authEvents.addHandlers()
 })

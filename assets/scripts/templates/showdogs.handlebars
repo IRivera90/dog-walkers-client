@@ -27,3 +27,32 @@
   </section>
 
 {{/each}}
+
+{{#each smallpets as |smallpet|}}
+  <section class='oneSmallPet' data-id="{{smallpet.id}}">
+    <h6>Name:</h6>
+    <h3>
+      {{smallpet.name}}
+    </h3>
+    <h6>Animal:</h6>
+    <p>
+      {{#if smallpet.animal}}
+        {{smallpet.animal}}
+      {{else}}
+        No animal provided.
+      {{/if}}
+    </p>
+    <button type=button class='destroySmallPet'>Remove Small Pet</button>
+    <form class='updateSmallPet'>
+      <fieldset>
+        <legend>Update Small Pet</legend>
+        <input type="text" name="smallpet[name]" placeholder="Enter Small Pet's Name" required>
+        <input type="text" name="smallpet[animal]" placeholder="Enter Type of Animal" required>
+        <!-- <input type="submit" value="Update Dog"> !-->
+      </fieldset>
+  <button type='submit' class='updateSmallPet'>Update small pet</button>
+  </form>
+    <!--  {{> partial}} !-->
+  </section>
+
+{{/each}}

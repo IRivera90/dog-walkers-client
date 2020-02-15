@@ -14,7 +14,7 @@
     <body>
       <h1>Woof</h1>
 
-      <p id='message'></p>
+      <div class="alert" role="alert" id='message'></div>
 
       <form id="sign-up" class="border">
     <fieldset>
@@ -60,9 +60,23 @@
     </fieldset>
   </form>
 
+  <form id="smallpet-create" class="border">
+    <fieldset>
+      <legend>Register an animal!</legend>
+      <input type="text" name="smallpet[name]" placeholder="Pet's name" required>
+      <input type="text" name="smallpet[animal]" placeholder="Type of animal" required>
+      <input type="submit" value="Register a pet!">
+    </fieldset>
+  </form>
+
   <div id="dog-index" class="border">
       <h3>Show all the dogs!</h3>
       <button type="button"> Get All Dogs </button>
+  </div>
+
+  <div id="smallpet-index" class="border">
+      <h3>Show all the small pets!</h3>
+      <button type="button"> Get All Pets </button>
   </div>
 
   <!-- <form id="dog-show" class="border">
@@ -73,7 +87,9 @@
     </fieldset>
   </form> -->
 
-  <div id='doglist'>
-  </div>
+  <div id='doglist'> </div>
+
+  <div id='smallpetlist'> </div>
+
     </body>
 </html>

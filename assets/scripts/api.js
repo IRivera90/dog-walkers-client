@@ -73,6 +73,45 @@ const updateDog = function (id, data) {
     data: data
   })
 }
+// SMALLPETS
+const addSmallPet = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/smallpets',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+const showSmallPets = function () {
+  return $.ajax({
+    url: config.apiUrl + '/smallpets',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const removeSmallPet = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/smallpets/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const updateSmallPet = function (id, data) {
+  return $.ajax({
+    url: config.apiUrl + '/smallpets/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 
 module.exports = {
   signUp,
@@ -82,5 +121,9 @@ module.exports = {
   addDog,
   showDogs,
   removeDog,
-  updateDog
+  updateDog,
+  addSmallPet,
+  showSmallPets,
+  removeSmallPet,
+  updateSmallPet
 }
