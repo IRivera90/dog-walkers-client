@@ -21,6 +21,8 @@ const signInSuccess = function (data) {
   $('#sign-out').show()
   $('#dog-index').show()
   $('#dog-create').show()
+  $('#smallpet-index').show()
+  $('#smallpet-create').show()
 }
 
 const signInFailure = function () {
@@ -37,6 +39,9 @@ const signOutSuccess = function () {
   $('#doglist').hide()
   $('#dog-create').hide()
   $('#dog-index').hide()
+  $('smallpetlist').hide()
+  $('smallpet-create').hide()
+  $('smallpet-index').hide()
   $('#change-password').hide()
 }
 
