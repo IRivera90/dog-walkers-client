@@ -1,6 +1,7 @@
 const store = require('./store')
 const api = require('./api')
 const showDogs = require('./templates/showdogs.handlebars')
+const showSmallPets = require('./templates/showdogs.handlebars')
 
 const signUpSuccess = function (data) {
   successfulMessage('Signed up successfully')
@@ -51,7 +52,7 @@ const changePasswordSuccess = function () {
 const changePasswordFailure = function () {
   failureMessage('Error on change password')
 }
-
+// DOGS
 const onAddDogSuccess = function () {
   successfulMessage('Registered a new dog. Yay!')
   $('#dog-create').trigger('reset')
@@ -89,6 +90,48 @@ const onUpdateDogSuccess = function (data) {
 const onUpdateDogFailure = function (data) {
   failureMessage('Failed to update')
 }
+
+// SMALLPETS
+
+const onAddSmallPetSuccess = function () {
+  successfulMessage('Registered a new pet. Yay!')
+  $('#smallpet-create').trigger('reset')
+  $('#smallpetlist').hide()
+}
+
+const onAddSmallPetFailure = function () {
+  failureMessage('Could not register new pet')
+}
+
+const onShowSmallPetsSuccess = function (data) {
+  const showSmallPetsHtml = showSmallPets({ smallpets: data.smallpets })
+  $('#smallpetslist').show()
+  $('#smallpetslist').html(showSmallPetsHtml)
+  $('#smallpetslist').trigger('reset')
+  if (data.smallpets.length === 0) {
+    failureMessage('Please add some pets!')
+  }
+}
+
+const onRemoveSmallPetSuccess = function (data) {
+  successfulMessage(':(')
+  $('.oneSmallPet').empty()
+  api.showSmallPets(data)
+    .then(onShowSmallPetsSuccess)
+    .catch()
+}
+
+const onUpdateSmallPetSuccess = function (data) {
+  successfulMessage('Pet updated')
+  $('.updateSmallPet').trigger('reset')
+  $('#smallpetlist').hide()
+}
+
+const onUpdateSmallPetFailure = function (data) {
+  failureMessage('Failed to update')
+}
+
+// MESSAGES
 const successfulMessage = function (message) {
   $('#message').show().text(message)
   // $('#message').addClass('alert-info')
@@ -114,5 +157,11 @@ module.exports = {
   onShowDogsSuccess,
   onRemoveDogSuccess,
   onUpdateDogSuccess,
-  onUpdateDogFailure
+  onUpdateDogFailure,
+  onAddSmallPetSuccess,
+  onAddSmallPetFailure,
+  onShowSmallPetsSuccess,
+  onRemoveSmallPetSuccess,
+  onUpdateSmallPetSuccess,
+  onUpdateSmallPetFailure
 }
