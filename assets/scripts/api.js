@@ -76,7 +76,7 @@ const updateDog = function (id, data) {
 // SMALLPETS
 const addSmallPet = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/dogs',
+    url: config.apiUrl + '/small_pets',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -86,7 +86,7 @@ const addSmallPet = function (data) {
 }
 const showSmallPets = function () {
   return $.ajax({
-    url: config.apiUrl + '/dogs',
+    url: config.apiUrl + '/small_pets',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -95,7 +95,7 @@ const showSmallPets = function () {
 }
 const removeSmallPet = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/dogs/' + id,
+    url: config.apiUrl + '/small_pets/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -104,7 +104,7 @@ const removeSmallPet = function (id) {
 }
 const updateSmallPet = function (id, data) {
   return $.ajax({
-    url: config.apiUrl + '/dogs/' + id,
+    url: config.apiUrl + '/small_pets/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
