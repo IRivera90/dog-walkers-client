@@ -3,7 +3,7 @@
 // https://blooming-castle-95686.herokuapp.com/
 let apiUrl
 const apiUrls = {
-  production: 'https://blooming-castle-95686.herokuapp.com/',
+  production: 'https://blooming-castle-95686.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
