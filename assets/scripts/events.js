@@ -81,7 +81,7 @@ const onAddSmallPet = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api.addDog(data)
+  api.addSmallPet(data)
     .then(ui.onAddSmallPetSuccess)
     .catch(ui.onAddSmallPetFailure)
 }
