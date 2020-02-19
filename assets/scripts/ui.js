@@ -1,7 +1,7 @@
 const store = require('./store')
 const api = require('./api')
 const showDogs = require('./templates/showdogs.handlebars')
-const showSmallPets = require('./templates/showdogs.handlebars')
+const showSmallPets = require('./templates/showsmallpets.handlebars')
 
 const signUpSuccess = function (data) {
   successfulMessage('Signed up successfully')
