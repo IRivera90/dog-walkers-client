@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Dog Walkers</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Woof</h1>
+      <!--  class="alert" role="alert" <Add into div below for alerts> -->
+      <div id='message'></div>
+
+      <form id="sign-up" class="border">
+    <fieldset>
+      <legend>Sign up!</legend>
+      <input type="text" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+      <input type="submit" value="Sign up!">
+    </fieldset>
+  </form>
+
+  <form id="sign-in" class="border">
+    <fieldset>
+      <legend>Sign in!</legend>
+      <input type="text" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="submit" value="Sign in!">
+    </fieldset>
+  </form>
+
+  <form id="sign-out" class="border">
+    <fieldset>
+      <legend>Sign Out!</legend>
+      <input type="submit" value="Sign out!">
+    </fieldset>
+  </form>
+
+  <form id="change-password" class="border">
+    <fieldset>
+      <legend>Change Password!</legend>
+      <input type="password" name="passwords[old]" placeholder="Old Password">
+      <input type="password" name="passwords[new]" placeholder="New Password">
+      <input type="submit" value="Change Password!">
+    </fieldset>
+  </form>
+
+  <form id="dog-create" class="border">
+    <fieldset>
+      <legend>Register a dog</legend>
+      <input type="text" name="dog[name]" placeholder="Dog's name" required>
+      <input type="text" name="dog[breed]" placeholder="Dog's breed" required>
+      <input type="submit" value="Register a dog">
+    </fieldset>
+  </form>
+
+  <form id="smallpet-create" class="border">
+    <fieldset>
+      <legend>Register an animal!</legend>
+      <input type="text" name="smallpet[name]" placeholder="Pet's name" required>
+      <input type="text" name="smallpet[animal]" placeholder="Type of animal" required>
+      <input type="submit" value="Register a pet!">
+    </fieldset>
+  </form>
+
+  <div id="dog-index" class="border">
+      <h3>Show all the dogs!</h3>
+      <button type="button"> Get All Dogs </button>
+  </div>
+
+  <div id="smallpet-index" class="border">
+      <h3>Show all the small pets!</h3>
+      <button type="button"> Get All Pets </button>
+  </div>
+
+  <!-- <form id="dog-show" class="border">
+    <fieldset>
+      <legend>Show me just one dog!</legend>
+      <input type="text" name="dog[id]" placeholder="Enter Dog ID">
+      <input type="submit">
+    </fieldset>
+  </form> -->
+
+  <div id='doglist'> </div>
+
+  <div id='smallpetlist'> </div>
+
+    </body>
+</html>
